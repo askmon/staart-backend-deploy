@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config()
 
 // middlewares
 const error = require('./middlewares/error')
@@ -24,7 +25,7 @@ app.use('/api', router)
 app.use('/docs', docs)
 
 app
-  .listen(3000, '0.0.0.0', () => {
+  .listen(process.env.PORT, '0.0.0.0', () => {
     console.log('Server started successfully')
   })
   .once('error', (error) => {

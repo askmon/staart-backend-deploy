@@ -1,3 +1,6 @@
+
+require('dotenv').config()
+
 // Update with your config settings.
 const { database: config } = require('./src/config')
 
