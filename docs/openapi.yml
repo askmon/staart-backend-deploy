@@ -8,6 +8,8 @@ info:
 servers:
   - url: http://localhost:3000/
     description: Local deployment server
+  - url: https://andre-staart-deploy-t.herokuapp.com/
+    description: Production environment
 
 paths:
 
