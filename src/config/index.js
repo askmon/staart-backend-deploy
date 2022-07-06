@@ -34,13 +34,7 @@ const encryption = {
 
 const database = immutable({
   client: 'mysql2',
-  connection: immutable({
-    host : '127.0.0.1',
-    port : 3306,
-    user : 'staart',
-    password : 'staart',
-    database : 'node-application-database',
-  }),
+  connection: process.env.DB_URL,
   migrations: immutable({
     tableName: 'migrations',
   })
