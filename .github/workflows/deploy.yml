@@ -7,31 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/migrate-and-deploy
         with:
-          node-version: 16
-      - run: npm install
-      - run: npm run migrations:migrate
-        env:
-          DB_URL: ${{secrets.DB_URL}}
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "andre-staart-deploy-t"
-          heroku_email: ${{secrets.HEROKU_USER_EMAIL}}
+            heroku_app_name: "andre-staart-deploy-t"
+            db_url: ${{secrets.DB_URL}}
   deploy-dev:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/migrate-and-deploy
         with:
-          node-version: 16
-      - run: npm install
-      - run: npm run migrations:migrate
-        env:
-          DB_URL: ${{secrets.DB_URL_DEV}}
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "andre-staart-t-dev"
-          heroku_email: ${{secrets.HEROKU_USER_EMAIL}}
+            heroku_app_name: "andre-staart-t-dev"
+            db_url: ${{secrets.DB_URL_DEV}}

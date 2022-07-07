@@ -1,0 +1,21 @@
+name: "Migration and Deploy to Heroku"
+inputs:
+  db_url:
+    required: true
+  heroku_app_name:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm install
+    - run: npm run migrations:migrate
+      env:
+        DB_URL: ${{inputs.db_url}}
+    - uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: ${{inputs.heroku_app_name}}
+        heroku_email: ${{secrets.HEROKU_USER_EMAIL}}
