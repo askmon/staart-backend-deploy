@@ -10,6 +10,8 @@ servers:
     description: Local deployment server
   - url: https://andre-staart-deploy.herokuapp.com/
     description: Production environment
+  - url: https://andre-staart-deploy-dev.herokuapp.com/
+    description: Development environment
 
 paths:
 
