@@ -24,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^2.0.0",
     "mysql2": "^2.3.3",
+    "newrelic": "^8.15.0",
     "swagger-ui-express": "^4.4.0"
   }
 }
